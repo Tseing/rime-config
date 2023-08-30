@@ -626,7 +626,7 @@ preset_keyboards:
       - {
           click: '.',
           long_click: '?',
-          composing: select_second,
+          composing: Keyboard_number,
           width: 12,
           __include: styl/key,
         }
@@ -786,7 +786,7 @@ preset_keyboards:
       - { click: kb_edit, __include: styl/off_func }
       - { click: Zdic, __include: styl/off_func }
       - { click: MoeDict, __include: styl/off_func }
-      - { click: VOICE_ASSIST, __include: styl/off_func }
+      - { click: Bing, __include: styl/off_func }
       - { click: IME_switch, __include: styl/off_func }
       - { click: kb_qwerty, __include: styl/off_func }
       - { click: kb_qwertys, __include: styl/off_func }
@@ -808,7 +808,6 @@ preset_keys:
   POWER: { label: 电源, send: POWER }
   SEARCH: { label: 搜寻, send: Find }
   SLEEP: { label: 休眠, send: SLEEP }
-  VOICE_ASSIST: { label: 语音, send: VOICE_ASSIST }
   VOLUME_DOWN: { label: 音量-, send: VOLUME_DOWN }
   VOLUME_UP: { label: 音量+, send: VOLUME_UP }
   VOLUME_MUTE: { label: 静音, send: VOLUME_MUTE }
@@ -835,10 +834,10 @@ preset_keys:
       option: 'https://www.google.com/search?q=%s',
     } #搜索网页: %s或者%1$s为当前字符
   MoeDict: { label: 萌典, command: run, option: 'https://www.moedict.tw/%3$s' } #搜索网页: %3$s为光标前字符
-  Baidu: {
-      label: 百度搜索,
+  Bing: {
+      label: 必应,
       command: run,
-      option: 'https://www.baidu.com/s?wd=%4$s',
+      option: 'https://www.bing.com/search?q=%4$s',
     } #搜索网页: %4s为光标前所有字符
   Zdic: {
       label: 汉典,
@@ -935,6 +934,6 @@ preset_keys:
   kb_func: { label: '❖', send: Eisu_toggle, select: func }
   # 自定义按键
   BS: { label: '⌫', repeatable: true, send: BackSpace }
-  select_second: { label: '②', send: 2 }
+  # select_second: { label: '②', send: 2 }
   split_word: { label: "'分词", send: apostrophe }
   __include: danjing:/preset_keys
