@@ -574,7 +574,7 @@ preset_keyboards:
       - { click: 'k', long_click: ':', __include: styl/key }
       - { click: 'l', long_click: ';', __include: styl/key }
       # 第 3 行
-      - { click: Shift_L, composing: split_word, width: 15 }
+      - { click: Shift_L, width: 15 }
       - { click: 'z', long_click: '`', __include: styl/key }
       - { click: 'x', long_click: cut, __include: styl/key }
       - { click: 'c', long_click: copy, __include: styl/key }
@@ -602,7 +602,7 @@ preset_keyboards:
       - {
           click: Keyboard_number,
           long_click: Menu,
-          composing: Page_Up,
+          composing: Left,
           width: 12,
           __include: styl/off_key,
           __patch: conf/key_height_last,
@@ -610,7 +610,7 @@ preset_keyboards:
       - {
           click: Keyboard_symbols,
           long_click: Color_switch,
-          composing: Page_Down,
+          composing: Right,
           width: 12,
           __include: styl/off_key,
         }

@@ -1,0 +1,9 @@
+# Rime default settings
+# encoding: utf-8
+
+config_version: '0.40'
+
+patch:
+  schema_list:
+    - schema: tiger
+...
