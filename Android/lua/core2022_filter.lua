@@ -15,8 +15,11 @@ local charsets = {
   { first = 0xf900, last = 0xfadf }, -- 兼容
   { first = 0x2f800, last = 0x2fa1f }, -- 兼补
   { first = 0x2ff0, last = 0x2fff }, -- 汉字结构
-  { first = 0x3100, last = 0x312f }, -- 注音
-  { first = 0x31a0, last = 0x31bf }, -- 注音扩展
+  -- 过滤扩展区汉字的逻辑应该是判断是否为汉字，再将常用字表（此处为 core2022.dict.yaml）外的汉字设定为不 yield
+  -- 而非用 is_cjk() 判断整个 CJK，这会导致仅能输出常用字表中内容，各种符号、假名都无法作为候选词
+  -- 沿用旧的逻辑，不作大修改，暂将需要候选的内容注释去，勉强可用
+  -- { first = 0x3100, last = 0x312f }, -- 注音
+  -- { first = 0x31a0, last = 0x31bf }, -- 注音扩展
   -- -- 以上为汉字部分
   -- { first = 0x3040, last = 0x309f }, -- 平假名 
   -- { first = 0x30a0, last = 0x30ff }, -- 片假名

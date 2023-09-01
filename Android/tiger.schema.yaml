@@ -5,6 +5,7 @@ schema:
     - core2022  #自定义字集工具方案
     - PY_c  # 拼音方案
     - easy_english # 英文
+    - bopomofo_script # 注音
   description: |
     虎码官方单字
     敲 ` 鍵進入拼音反查
@@ -21,7 +22,7 @@ switches: # 0 默认关，1 默认开
     reset: 0
     states: [ 半角, 全角 ]
   - name: extended_char  #自定义字集
-    reset: 1
+    reset: 0
     states: [ 全字集 , 常用字 ]
   # - name: pinyin  #拼音滤镜
   #   reset: 0
@@ -30,7 +31,7 @@ switches: # 0 默认关，1 默认开
   #   reset: 0
   #   states: [ 🈚, 🈶 ]
   - name: chaifen
-    reset: 0 
+    reset: 0
     states: [ 拆隐, 拆显 ]
   # - options: [ gb2312, gbk, utf8 ]
   #   states: [ gb2312, GBK, UTF-8 ]
@@ -42,7 +43,7 @@ switches: # 0 默认关，1 默认开
   #   reset: 0
   #   states: [ 有刻, 半刻, 无刻 ]
   - name: charset_comment_filter  #字符集提示
-    reset: 0  
+    reset: 0
     states: [ U区关, U区开 ]
   - name: udpf_switch
     reset: 0
@@ -76,6 +77,7 @@ engine:
     - ascii_segmentor
     - matcher
     - affix_segmentor@easy_english #英文相关
+    - affix_segmentor@bopomofo_script # 注音文
     - abc_segmentor
     - punct_segmentor
     - fallback_segmentor
@@ -84,6 +86,7 @@ engine:
     - reverse_lookup_translator #拼音反查
     - table_translator
     - table_translator@easy_english #临时英文
+    - script_translator@bopomofo_script # 注音文
     - history_translator@historyDM # 重复上屏 电脑
     - history_translator@historyDM2 # 重复上屏 电脑2
     - history_translator@historyDM3 # 重复上屏 电脑3
@@ -191,7 +194,8 @@ recognizer:
     punct: "^/([0-9]0?|[A-Za-z]+)$"
     # uppercase: "" #中文状态大写锁定直接上屏
     reverse_lookup: "^`[a-z]*'?$"
-    easy_english: "^'[A-Z|a-z]*`?$"
+    easy_english: "^:[A-Z|a-z]*`?$"
+    bopomofo_script: "^;[a-z|1-5]*$"
     expression: "^=.*$"
 
 # menu:
@@ -264,8 +268,8 @@ emoji_cn:
 easy_english:
   dictionary: easy_english
   tag: easy_english
-  prefix: "'"
-  tips: 〔En〕
+  prefix: ":"
+  tips: "〔En〕"
   enable_completion: true
   enable_sentence: false
   initial_quality: -1
@@ -274,14 +278,27 @@ easy_english:
   comment_format: #去掉编码提示前的~号
     - "xform/~/ /"
 
+# 注音符号（大字集下才能使用）
+bopomofo_script:
+  dictionary: bopomofo_script
+  tag: bopomofo_script
+  prefix: ";"
+  tips: "〔ㄓ〕"
+  enable_completion: true
+  enable_sentence: false
+  show_in_comment: false
+  initial_quality: -1
+  preedit_format:
+    - "xlit|_| |"
+
 # 拆分滤镜
 chaifen:
   opencc_config: hu_cf.json
   option_name: chaifen
-  show_in_comment: true 
-  comment_format:     
+  show_in_comment: true
+  comment_format:
     - "xform/&nbsp;/ /"
-  tags:     
+  tags:
     - abc
     - tiger
     - tigress
