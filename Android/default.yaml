@@ -1,7 +1,7 @@
 # Rime default settings
 # encoding: utf-8
 
-config_version: '0.40'
+config_version: '0.10'
 
 switcher:
   caption: 〔方案選單〕
@@ -22,13 +22,13 @@ switcher:
   option_list_separator: '／'
 
 menu:
-  page_size: 5
+  page_size: 10
 
 punctuator:
   full_shape:
-    __include: punctuation:/full_shape
+    __include: symbols:/punctuator/full_shape
   half_shape:
-    __include: punctuation:/half_shape
+    __include: symbols:/punctuator/half_shape
 
 recognizer:
   patterns:
