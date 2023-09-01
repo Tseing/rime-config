@@ -31,7 +31,7 @@ switches: # 0 默认关，1 默认开
   #   reset: 0
   #   states: [ 🈚, 🈶 ]
   - name: chaifen
-    reset: 0
+    reset: 1
     states: [ 拆隐, 拆显 ]
   # - options: [ gb2312, gbk, utf8 ]
   #   states: [ gb2312, GBK, UTF-8 ]
