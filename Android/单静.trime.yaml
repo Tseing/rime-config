@@ -65,7 +65,7 @@ style:
   candidate_view_height: 33 #候选区高度
   candidate_padding: 5 #候选项内边距
   candidate_spacing: 0.5 #候选间距
-  candidate_font: TH-Feon.ttf #候选字型 设为 TH-Feon.ttf 才能显示大字集，hanb_font 无作用的原因不明
+  # candidate_font: TH-Feon.ttf #候选字型 设为 TH-Feon.ttf 才能显示大字集，hanb_font 无作用的原因不明
   candidate_text_size: 20 #候选字号
   ## 编码
   comment_on_top: false #编码提示在上方或右侧
@@ -85,7 +85,7 @@ style:
   shadow_radius: 0.0 #按键阴影半径
   key_font: symbol.ttf #键盘字型
   latin_font: latin.ttf #西文字型
-  hanb_font: TH-Feon.ttf #扩充字型
+  # hanb_font: TH-Feon.ttf #扩充字型
   key_text_size: 20 #键字号
   key_long_text_size: 16 #长标签字号
   symbol_font: symbol.ttf #符号字型
