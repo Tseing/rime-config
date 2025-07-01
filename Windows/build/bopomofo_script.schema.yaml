@@ -1,0 +1,155 @@
+__build_info:
+  rime_version: 1.11.2
+  timestamps:
+    bopomofo_script.custom: 0
+    bopomofo_script.schema: 1693555723
+    default: 1717674678
+    default.custom: 1699357368
+    key_bindings: 1717674678
+    key_bindings.custom: 0
+    punctuation: 1649466780
+    punctuation.custom: 0
+engine:
+  filters:
+    - uniquifier
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - fluency_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+menu:
+  page_size: 5
+punctuator:
+  full_shape:
+    " ": {commit: "　"}
+    "!": {commit: "！"}
+    "\"": {pair: ["“", "”"]}
+    "#": ["＃", "⌘"]
+    "$": ["￥", "$", "€", "£", "¥", "¢", "¤"]
+    "%": ["％", "°", "℃"]
+    "&": "＆"
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": ["＊", "·", "・", "×", "※", "❂"]
+    "+": "＋"
+    ",": {commit: "，"}
+    "-": "－"
+    .: {commit: "。"}
+    "/": ["／", "÷"]
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": ["《", "〈", "«", "‹"]
+    "=": "＝"
+    ">": ["》", "〉", "»", "›"]
+    "?": {commit: "？"}
+    "@": ["＠", "☯"]
+    "[": ["「", "【", "〔", "［"]
+    "\\": ["、", "＼"]
+    "]": ["」", "】", "〕", "］"]
+    "^": {commit: "……"}
+    _: "——"
+    "`": "｀"
+    "{": ["『", "〖", "｛"]
+    "|": ["·", "｜", "§", "¦"]
+    "}": ["』", "〗", "｝"]
+    "~": "～"
+  half_shape:
+    "!": {commit: "！"}
+    "\"": {pair: ["“", "”"]}
+    "#": "#"
+    "$": ["￥", "$", "€", "£", "¥", "¢", "¤"]
+    "%": ["%", "％", "°", "℃"]
+    "&": "&"
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": ["*", "＊", "·", "・", "×", "※", "❂"]
+    "+": "+"
+    ",": {commit: "，"}
+    "-": "-"
+    .: {commit: "。"}
+    "/": ["、", "/", "／", "÷"]
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": ["《", "〈", "«", "‹"]
+    "=": "="
+    ">": ["》", "〉", "»", "›"]
+    "?": {commit: "？"}
+    "@": "@"
+    "[": ["「", "【", "〔", "［"]
+    "\\": ["、", "\\", "＼"]
+    "]": ["」", "】", "〕", "］"]
+    "^": {commit: "……"}
+    _: "——"
+    "`": "`"
+    "{": ["『", "〖", "｛"]
+    "|": ["·", "|", "｜", "§", "¦"]
+    "}": ["』", "〗", "｝"]
+    "~": ["~", "～"]
+  import_preset: default
+recognizer:
+  import_preset: default
+  patterns:
+    email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+    url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+schema:
+  author:
+    - "foodgen <chen.sst@gmail.com>"
+  description: |
+    羅馬字轉寫輸入注音符號
+
+  name: "注音文"
+  schema_id: bopomofo_script
+  version: 2014.05.12
+speller:
+  algebra:
+    - "xform/iu/yu/"
+    - "derive/^([jqx])yu/$1u/"
+    - "derive/^([nl])yu/$1v/"
+    - "derive/^([nl])yue/$1ue/"
+    - "erase/^nyue?$/"
+    - "derive/^([zcs]h?|r)$/$1i/"
+    - "derive/^i$/y/"
+    - "derive/^i/yi/"
+    - "derive/^u$/w/"
+    - "derive/^u/wu/"
+    - "derive/iou/iu/"
+    - "derive/uei/ui/"
+    - "derive/uen/un/"
+    - "derive/uen/wen/"
+    - "derive/au/ao/"
+    - "derive/ung/ong/"
+    - "derive/wung/weng/"
+    - "derive/yung/iong/"
+  alphabet: abcdefghijklmnopqrstuvwxyz12345
+  delimiter: "'"
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: ["注音", "西文"]
+  - name: half_shape
+    states: ["半角", "全角"]
+translator:
+  db_class: tabledb
+  dictionary: bopomofo_script
+  enable_completion: true
+  enable_encoder: true
+  enable_sentence: true
+  enable_user_dict: true
+  encode_commit_history: false
+  user_dict: bopomofo_script
