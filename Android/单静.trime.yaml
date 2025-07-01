@@ -62,10 +62,10 @@ style:
   # 候选区
   ## 候选
   candidate_use_cursor: true #高亮候选项
-  candidate_view_height: 33 #候选区高度
+  candidate_view_height: 20 #候选区高度
   candidate_padding: 5 #候选项内边距
   candidate_spacing: 0.5 #候选间距
-  # candidate_font: TH-Feon.ttf #候选字型 设为 TH-Feon.ttf 才能显示大字集，hanb_font 无作用的原因不明
+  candidate_font: Plangothic.ttc #候选字型 设为 TH-Feon.ttf 才能显示大字集，hanb_font 无作用的原因不明
   candidate_text_size: 20 #候选字号
   ## 编码
   comment_on_top: false #编码提示在上方或右侧
@@ -85,7 +85,7 @@ style:
   shadow_radius: 0.0 #按键阴影半径
   key_font: symbol.ttf #键盘字型
   latin_font: latin.ttf #西文字型
-  # hanb_font: TH-Feon.ttf #扩充字型
+  hanb_font: Plangothic.ttc #扩充字型
   key_text_size: 20 #键字号
   key_long_text_size: 16 #长标签字号
   symbol_font: symbol.ttf #符号字型
@@ -382,14 +382,15 @@ preset_color_schemes:
     # off_key_symbol_color: off_key_text_color #功能键符号 高亮功能键符号※
     hilited_off_key_back_color: danjing.google_white/hilited_off_key.png #高亮功能键背景
     # hilited_off_key_text_color: off_key_text_color #高亮功能键文字
-    on_key_back_color: danjing.google_white/shift.png #shift锁定时背景
+    blank_back_color: danjing.google_white/shift.png
+    on_key_back_color: danjing.google_white/hilited_shift.png #shift锁定时背景
     on_key_text_color: 0xFFFFFF #shift锁定时文字
     hilited_on_key_back_color: danjing.google_white/hilited_shift.png #高亮shift锁定时背景
     # hilited_on_key_text_color: on_key_text_color #高亮shift锁定时文字
-    # enter_back_color: on_key_back_color #enter背景 ※
+    enter_back_color:  danjing.google_white/enter.png #enter背景 ※
     # enter_text_color: on_key_text_color #enter文字 高亮enter文字※
     # enter_symbol_color: enter_text_color #enter符号 高亮enter符号※
-    # hilited_enter_back_color: hilited_on_key_back_color #高亮enter背景 ※
+    hilited_enter_back_color: danjing.google_white/enter.png #高亮enter背景 ※
 
     # 附键盘
     key_back_color: 0xFBFBFC #按键背景
@@ -483,6 +484,8 @@ styl:
   off_key:
     key_symbol_color: off_key_symbol_color
     hilited_key_symbol_color: off_key_symbol_color
+    key_back_color: main_back_color
+    hilited_key_back_color: hilited_main_back_color
     key_symbol_offset_x: 0
   off_func:
     key_back_color: off_sym_back_color
@@ -574,7 +577,11 @@ preset_keyboards:
       - { click: 'k', long_click: ':', __include: styl/key }
       - { click: 'l', long_click: ';', __include: styl/key }
       # 第 3 行
-      - { click: Shift_L, width: 15 }
+      - {
+          click: Shift_L,
+          width: 15,
+          key_back_color: blank_back_color,
+        }
       - { click: 'z', long_click: '`', __include: styl/key }
       - { click: 'x', long_click: cut, __include: styl/key }
       - { click: 'c', long_click: copy, __include: styl/key }
@@ -597,7 +604,13 @@ preset_keyboards:
           __include: styl/key,
         }
       - { click: 'm', long_click: "'", __include: styl/key }
-      - { click: BS, swipe_up: Escape, width: 15 }
+      - {
+          click: BS,
+          swipe_up: Escape,
+          width: 15,
+          key_back_color: blank_back_color,
+          hilited_key_back_color: hilited_on_key_back_color,
+        }
       # 第 4 行
       - {
           click: Keyboard_number,

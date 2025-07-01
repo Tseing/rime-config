@@ -1863,36 +1863,36 @@ preset_keyboards:
     __include: conf/sym
     __patch: conf/bottom
     keys:
-      - { click: '😊' }
-      - { click: '😌' }
-      - { click: '😚' }
-      - { click: '😓' }
-      - { click: '😰' }
-      - { click: '😝' }
+      - { click: '😀' }
       - { click: '😁' }
-      - { click: Back, __include: styl/off_sym }
-      - { click: '😜' }
-      - { click: '☺️' }
-      - { click: '😉' }
-      - { click: '😍' }
-      - { click: '😔' }
+      - { click: '😂' }
+      - { click: '🙄' }
       - { click: '😄' }
-      - { click: '😏' }
+      - { click: '😅' }
+      - { click: '🤣' }
+      - { click: Back, __include: styl/off_sym }
+      - { click: '🤤' }
+      - { click: '😴' }
+      - { click: '🥶' }
+      - { click: '🥵' }
+      - { click: '🥴' }
+      - { click: '🤯' }
+      - { click: '🤨' }
       - { click: kb_emojiu1, __include: styl/unavl_off_sym }
-      - { click: '😒' }
-      - { click: '😳' }
-      - { click: '😘' }
+      - { click: '😋' }
+      - { click: '🤪' }
+      - { click: '🧐' }
       - { click: '😭' }
       - { click: '😱' }
-      - { click: '😂' }
-      - { click: '💪' }
+      - { click: '😤' }
+      - { click: '🤬' }
       - { click: kb_emojid2, __include: styl/off_sym }
-      - { click: '👊' }
       - { click: '👍' }
-      - { click: '☝️' }
-      - { click: '👏' }
       - { click: '✌️' }
-      - { click: '👎' }
+      - { click: '🤌' }
+      - { click: '🖖' }
+      - { click: '🤏' }
+      - { click: '💢' }
       - { click: '🙏' }
       - { click: BackSpace, __include: styl/off_sym }
       - { click: kb_sym11, __include: styl/menu }
